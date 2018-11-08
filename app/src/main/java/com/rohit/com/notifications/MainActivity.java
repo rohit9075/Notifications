@@ -47,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
                 .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                 // set the intent that will fire when user tap on notification
                 .setContentIntent(pendingIntent)
+                // this method remove the notification when user tap on notification
+                .setAutoCancel(true)
                 .build();
 
         notificationManager.notify(1, notification);
