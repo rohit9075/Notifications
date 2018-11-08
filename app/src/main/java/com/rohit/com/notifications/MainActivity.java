@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         String title = editTextTitle.getText().toString();
         String message = editTextMessage.getText().toString();
 
+        //Explicit intent to respond on notification Action
         Intent intent = new Intent(this, NotificationActionActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, 0);
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                 .setContentText(message)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                // set the intent that will fire when user tap on notification
                 .setContentIntent(pendingIntent)
                 .build();
 
